@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ferramentas prontas pra automatizar e vender mais</title>
+<meta name="description" content="WhatsRobô, Prato Nutri e Closet — apps e automações da KaoZ Brigade prontos pra resolver seu problema agora.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ferramentas prontas pra automatizar e vender mais">
+<meta property="og:description" content="WhatsRobô, Prato Nutri e Closet — apps e automações da KaoZ Brigade prontos pra resolver seu problema agora.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F1614'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%233ECF8E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0F1614;
+    --bg-alt: #1C2622;
+    --fg: #F5F3EE;
+    --fg-muted: #8B8378;
+    --accent: #3ECF8E;
+    --border: #2A3530;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Public Sans', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 96px 0 72px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    line-height: 1.15;
+    max-width: 14ch;
+    color: var(--fg);
+  }
+  .hero p {
+    margin-top: 20px;
+    font-size: 1.15rem;
+    color: var(--fg-muted);
+    max-width: 42ch;
+  }
+
+  /* PRODUCT SECTIONS */
+  .product {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .product-tag {
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .product h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+    margin-bottom: 14px;
+  }
+  .product p.lede {
+    color: var(--fg-muted);
+    font-size: 1.05rem;
+    max-width: 52ch;
+    margin-bottom: 24px;
+  }
+  .features {
+    list-style: none;
+    margin-bottom: 24px;
+    display: grid;
+    gap: 10px;
+  }
+  .features li {
+    padding-left: 20px;
+    position: relative;
+    font-size: 0.98rem;
+    color: var(--fg);
+  }
+  .features li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .proof {
+    display: inline-block;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 0.92rem;
+    color: var(--fg-muted);
+    margin-bottom: 24px;
+  }
+  .proof strong { color: var(--fg); font-weight: 600; }
+
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #0F1614;
+    font-weight: 600;
+    font-size: 0.98rem;
+    padding: 13px 26px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(62, 207, 142, 0.25);
+  }
+  .btn-outline {
+    display: inline-block;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+
+  .soon-badge {
+    display: inline-block;
+    font-size: 0.78rem;
+    color: var(--fg-muted);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 56px 0 64px;
+  }
+  footer .name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+  }
+  footer .role {
+    color: var(--fg-muted);
+    font-size: 0.95rem;
+    margin-bottom: 22px;
+  }
+  .contact-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .contact-links a {
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+  }
+  .contact-links a:hover { border-color: var(--accent); color: var(--accent); }
+
+  @media (max-width: 600px) {
+    .hero { padding: 64px 0 48px; }
+    .product { padding: 48px 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <section class="hero">
+    <h1>Ferramentas prontas pra automatizar e vender mais</h1>
+    <p>Escolha o que resolve seu problema agora — cada produto abaixo já está em uso real.</p>
+  </section>
+
+  <section class="product" id="whatsrobo">
+    <div class="product-tag">DISPARO DE MENSAGENS</div>
+    <h2>WhatsRobô</h2>
+    <p class="lede">Automatiza o envio de mensagens em massa pelo WhatsApp — com segurança contra bloqueio e controle total sobre suas campanhas.</p>
+    <ul class="features">
+      <li>Importa sua lista de contatos e organiza por tags</li>
+      <li>Delay inteligente entre mensagens, pra parecer envio natural</li>
+      <li>Modo de teste (dry-run) simula o disparo antes de mandar de verdade</li>
+      <li>Múltiplos números conectados ao mesmo tempo, com divisão automática da lista</li>
+      <li>Reenvia automaticamente só pra quem falhou</li>
+    </ul>
+    <div class="proof"><strong>Em uso real</strong> — clientes pagando por licença mensal e trimestral</div>
+    <br>
+    <a href="https://wa.me/5562992322393?text=Vi%20o%20WhatsRob%C3%B4%20no%20seu%20site" class="btn" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+  </section>
+
+  <section class="product" id="prato-nutri">
+    <div class="product-tag">CONTROLE NUTRICIONAL</div>
+    <h2>Prato Nutri</h2>
+    <p class="lede">App para acompanhar refeições e hábitos alimentares no dia a dia, direto do celular.</p>
+    <ul class="features">
+      <li>Publicado e disponível na Google Play</li>
+      <li>Interface simples, pensada pra uso diário sem complicação</li>
+    </ul>
+    <a href="https://play.google.com/store/apps/details?id=com.thekaoz.prato_nutri" class="btn-outline" target="_blank" rel="noopener noreferrer">Ver na Play Store →</a>
+  </section>
+
+  <section class="product" id="closet">
+    <span class="soon-badge">Em breve</span>
+    <div class="product-tag">GESTÃO PARA LOJAS</div>
+    <h2>Closet</h2>
+    <p class="lede">Sistema completo de gestão para lojas de roupa — controle de estoque, vendas e pagamento em um só lugar, feito pra pequenos negócios.</p>
+  </section>
+
+  <footer id="contato">
+    <div class="name">KaoZ Brigade</div>
+    <div class="role">João Victor — desenvolvimento de apps e automações</div>
+    <div class="contact-links">
+      <a href="https://wa.me/5562992322393" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="mailto:jvmartins71@gmail.com">E-mail</a>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
