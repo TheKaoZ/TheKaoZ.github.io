@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prato Nutri — controle nutricional no celular</title>
+<meta name="description" content="Prato Nutri: acompanhe refeições e hábitos alimentares com um banco de mais de 9 mil alimentos e 16 micronutrientes. Publicado na Google Play.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Prato Nutri — controle nutricional no celular">
+<meta property="og:description" content="Acompanhe refeições e hábitos alimentares com um banco de mais de 9 mil alimentos e 16 micronutrientes. Publicado na Google Play.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F1614'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%233ECF8E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #0F1614; --bg-alt: #1C2622; --fg: #F5F3EE; --fg-muted: #8B8378; --accent: #3ECF8E; --border: #2A3530; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--fg); font-family: 'Public Sans', sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  a { color: inherit; }
+  .mono { font-family: 'Space Mono', monospace; }
+
+  nav.top { border-bottom: 1px solid var(--border); }
+  nav.top .wrap { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 880px; }
+  .wordmark { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.05rem; text-decoration: none; color: var(--fg-muted); }
+  .wordmark b { color: var(--fg); font-weight: 500; }
+  .btn { display: inline-block; background: var(--accent); color: #0F1614; font-weight: 600; font-size: 0.92rem; padding: 10px 18px; border-radius: 6px; text-decoration: none; }
+  .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--fg); }
+
+  .hero { padding: 72px 0 56px; border-bottom: 1px solid var(--border); }
+  .tag { font-size: 0.85rem; color: var(--accent); font-weight: 600; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(2rem, 4.4vw, 3rem); line-height: 1.14; max-width: 17ch; margin-top: 12px; }
+  h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(1.5rem, 3vw, 1.9rem); }
+  .lead { margin-top: 18px; font-size: 1.1rem; color: var(--fg-muted); max-width: 56ch; }
+  .hero-cta { margin-top: 26px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  .trust { margin-top: 16px; font-size: 0.85rem; color: var(--fg-muted); }
+
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  .section-tag { font-size: 0.78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-muted); margin-bottom: 10px; }
+
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 28px; }
+  @media (max-width: 640px) { .stats { grid-template-columns: 1fr; } }
+  .stat { background: var(--bg-alt); padding: 20px 22px; }
+  .stat .n { font-size: 26px; font-weight: 700; color: var(--accent); }
+  .stat .l { font-size: 12.5px; color: var(--fg-muted); margin-top: 4px; }
+
+  .features { list-style: none; display: grid; gap: 12px; margin-top: 24px; }
+  .features li { padding-left: 22px; position: relative; font-size: 0.98rem; }
+  .features li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+  .features li b { color: var(--fg); }
+  .features li span { color: var(--fg-muted); }
+
+  .sources { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+  .source-chip { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--fg-muted); border: 1px solid var(--border); border-radius: 100px; padding: 6px 12px; }
+
+  footer { padding: 48px 0 60px; }
+  footer a.back { color: var(--accent); text-decoration: none; font-size: 0.92rem; }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="wordmark" href="/">KaoZ <b>Brigade</b></a>
+    <a class="btn" href="https://play.google.com/store/apps/details?id=com.thekaoz.prato_nutri" target="_blank" rel="noopener noreferrer">Ver na Play Store</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section class="hero">
+    <span class="tag">CONTROLE NUTRICIONAL</span>
+    <h1>Saiba exatamente o que você comeu — sem virar obsessão.</h1>
+    <p class="lead">O Prato Nutri acompanha suas refeições e hábitos alimentares no dia a dia, direto do celular, com um dos bancos de alimentos mais completos disponíveis em português.</p>
+    <div class="hero-cta">
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.thekaoz.prato_nutri" target="_blank" rel="noopener noreferrer">Baixar na Play Store</a>
+    </div>
+    <div class="trust">✓ Publicado e disponível — Brasil e Angola</div>
+  </section>
+
+  <section>
+    <div class="section-tag">O banco de alimentos</div>
+    <h2>Mais de 9 mil alimentos, com micronutrientes de verdade</h2>
+    <div class="stats">
+      <div class="stat"><div class="n mono">9.015</div><div class="l">alimentos cadastrados</div></div>
+      <div class="stat"><div class="n mono">16</div><div class="l">micronutrientes por alimento</div></div>
+      <div class="stat"><div class="n mono">3</div><div class="l">bases combinadas e revisadas</div></div>
+    </div>
+    <div class="sources">
+      <span class="source-chip">TACO</span>
+      <span class="source-chip">USDA</span>
+      <span class="source-chip">Open Food Facts</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-tag">Recursos</div>
+    <h2>Simples de usar todo dia, sem complicação</h2>
+    <ul class="features">
+      <li><b>Registro rápido de refeição</b> — <span>busca o alimento no banco e registra em poucos toques.</span></li>
+      <li><b>Micronutrientes na tela "ver mais"</b> — <span>vitaminas e minerais de cada alimento, não só calorias.</span></li>
+      <li><b>Interface pensada pra uso diário</b> — <span>sem gráfico complicado, sem obrigação de virar planilha.</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <a class="back" href="/">← Todos os produtos</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
