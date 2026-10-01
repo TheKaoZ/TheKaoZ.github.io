@@ -3,17 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhatsRobô: disparo automático de WhatsApp</title>
-<meta name="description" content="WhatsRobô: automação de disparo em massa pelo WhatsApp, com múltiplos números, delay inteligente e reenvio automático de falhas.">
+<title>WhatsRobô: envio de mensagens pelo WhatsApp</title>
+<meta name="description" content="Programa para Windows que envia mensagens pelo WhatsApp para listas de contatos, com vários números conectados, intervalo aleatório entre envios e reenvio para quem falhou.">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta property="og:type" content="website">
-<meta property="og:title" content="WhatsRobô: disparo automático de WhatsApp">
-<meta property="og:description" content="Automação de disparo em massa pelo WhatsApp, com múltiplos números, delay inteligente e reenvio automático de falhas.">
+<meta property="og:title" content="WhatsRobô: envio de mensagens pelo WhatsApp">
+<meta property="og:description" content="Programa para Windows que envia mensagens pelo WhatsApp para listas de contatos, com vários números conectados, intervalo aleatório entre envios e reenvio para quem falhou.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F1614'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%233ECF8E'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
   :root {
     --bg: #0F1614; --bg-alt: #1C2622; --fg: #F5F3EE; --fg-muted: #8B8378; --accent: #3ECF8E; --border: #2A3530;
@@ -32,11 +30,12 @@
 
   .hero { padding: 72px 0 56px; border-bottom: 1px solid var(--border); }
   .tag { font-size: 0.85rem; color: var(--accent); font-weight: 600; }
-  h1 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(2rem, 4.4vw, 3rem); line-height: 1.14; max-width: 16ch; margin-top: 12px; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(2rem, 4.4vw, 3rem); line-height: 1.14; max-width: 18ch; margin-top: 12px; }
   h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(1.5rem, 3vw, 1.9rem); }
   .lead { margin-top: 18px; font-size: 1.1rem; color: var(--fg-muted); max-width: 56ch; }
   .hero-cta { margin-top: 26px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-  .disclaimer { margin-top: 18px; font-size: 0.85rem; color: var(--fg-muted); max-width: 56ch; display: flex; gap: 8px; }
+  .disclaimer { margin-top: 18px; font-size: 0.85rem; color: var(--fg-muted); max-width: 60ch; }
+  .disclaimer b { color: var(--fg); }
 
   section { padding: 56px 0; border-bottom: 1px solid var(--border); }
   .section-tag { font-size: 0.78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-muted); margin-bottom: 10px; }
@@ -53,10 +52,6 @@
   .features li b { color: var(--fg); }
   .features li span { color: var(--fg-muted); }
 
-  .honesty { margin-top: 28px; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px; padding: 20px 22px; }
-  .honesty p { font-size: 0.92rem; color: var(--fg-muted); }
-  .honesty .quote { margin-top: 10px; font-size: 0.85rem; color: var(--fg); background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; }
-
   .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
   @media (max-width: 780px) { .plans { grid-template-columns: 1fr; max-width: 380px; } }
   .plan { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px; padding: 22px; display: flex; flex-direction: column; gap: 14px; }
@@ -65,7 +60,9 @@
   .plan .price { font-size: 24px; font-weight: 700; }
   .plan .price small { font-size: 12px; color: var(--fg-muted); font-weight: 400; font-family: 'Public Sans', sans-serif; }
   .plan ul { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; color: var(--fg-muted); }
-  .plan li::before { content: "✓ "; color: var(--accent); }
+  .plan li { position: relative; padding-left: 18px; }
+  /* Marca de confirmação desenhada com borda (sem caractere de emoji). */
+  .plan li::before { content: ""; position: absolute; left: 3px; top: 5px; width: 5px; height: 9px; border: solid var(--accent); border-width: 0 2px 2px 0; transform: rotate(45deg); }
   .plan .btn { text-align: center; margin-top: auto; }
   .plan .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--fg); }
 
@@ -85,52 +82,49 @@
 <div class="wrap">
 
   <section class="hero">
-    <span class="tag">DISPARO DE MENSAGENS</span>
-    <h1>Automatize o disparo de WhatsApp sem perder o controle.</h1>
-    <p class="lead">O WhatsRobô conecta números reais do WhatsApp Web e manda mensagens em fila, com delay humano entre envios, múltiplos números simultâneos e histórico de cada disparo.</p>
+    <span class="tag">ENVIO DE MENSAGENS</span>
+    <h1>Envio de mensagens pelo WhatsApp para listas de contatos</h1>
+    <p class="lead">O WhatsRobô é um programa para Windows. Ele conecta números pelo WhatsApp Web e envia as mensagens em fila, com intervalo aleatório entre os envios e histórico de cada disparo.</p>
     <div class="hero-cta">
       <a class="btn" href="https://wa.me/5562992322393?text=Vi%20o%20WhatsRob%C3%B4%20no%20seu%20site" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
     </div>
-    <div class="disclaimer">⚠ Automação de WhatsApp viola os Termos de Uso da Meta e pode levar o número a ser banido. Preferimos avisar isso do que esconder o risco de você.</div>
+    <p class="disclaimer"><b>Aviso:</b> o uso de automação viola os Termos de Uso do WhatsApp e pode levar ao banimento do número. O programa exige a confirmação deste aviso antes de cada disparo.</p>
   </section>
 
   <section>
     <div class="stats">
-      <div class="stat"><div class="n mono">150/dia</div><div class="l">limite diário configurável, por número</div></div>
-      <div class="stat"><div class="n mono">120–240s</div><div class="l">delay aleatório entre envios</div></div>
-      <div class="stat"><div class="n mono">2–∞</div><div class="l">números simultâneos, por plano</div></div>
+      <div class="stat"><div class="n mono">40–90 s</div><div class="l">intervalo aleatório padrão entre envios, configurável</div></div>
+      <div class="stat"><div class="n mono">150</div><div class="l">limite padrão de envios por número em cada disparo, configurável</div></div>
+      <div class="stat"><div class="n mono">2</div><div class="l">números conectados no plano Básico. No Pro, ilimitados</div></div>
     </div>
   </section>
 
   <section>
     <div class="section-tag">Recursos</div>
-    <h2>Feito pra quem manda a mesma mensagem centenas de vezes</h2>
+    <h2>O que o programa faz</h2>
     <ul class="features">
-      <li><b>Multi-número.</b> <span>Conecte vários WhatsApp ao mesmo tempo e distribua o disparo entre eles.</span></li>
-      <li><b>Mídia sempre disponível.</b> <span>A mídia anexada é copiada pro app na hora; apagar o arquivo original depois nunca quebra o disparo.</span></li>
-      <li><b>Delay humano.</b> <span>Intervalo aleatório configurável entre mensagens.</span></li>
-      <li><b>Reenvio de falhas.</b> <span>O histórico marca quem não recebeu e deixa reenviar só pra esses contatos.</span></li>
-      <li><b>Contatos com tag.</b> <span>Organize sua lista por tag e dispare só pro segmento certo.</span></li>
-      <li><b>Modo de teste (dry-run).</b> <span>Simula o disparo inteiro antes de mandar de verdade.</span></li>
+      <li><b>Vários números.</b> <span>Os contatos de cada disparo são divididos entre os números conectados.</span></li>
+      <li><b>Intervalo aleatório.</b> <span>O tempo entre uma mensagem e outra é sorteado dentro de um intervalo configurável.</span></li>
+      <li><b>Templates com variáveis.</b> <span>A mensagem pode incluir nome, cidade, tag e e-mail do contato. Com vários templates selecionados, eles se alternam entre os contatos.</span></li>
+      <li><b>Mídia anexada.</b> <span>A mídia é copiada para o programa no momento do anexo. Apagar o arquivo original não afeta o disparo.</span></li>
+      <li><b>Contatos com tag.</b> <span>A lista de contatos é organizada por tag, e o disparo pode ser feito para uma tag específica.</span></li>
+      <li><b>Reenvio de falhas.</b> <span>O histórico mostra quem não recebeu e permite reenviar somente para esses contatos.</span></li>
+      <li><b>Modo de teste.</b> <span>Simula o disparo inteiro sem enviar nenhuma mensagem.</span></li>
     </ul>
-    <div class="honesty">
-      <p><strong style="color:var(--fg)">Sobre o risco:</strong> todo disparo passa pelo mesmo aviso dentro do próprio app antes de começar.</p>
-      <div class="quote">"Automação viola o ToS do WhatsApp e pode banir o número. Use chips de teste."</div>
-    </div>
   </section>
 
   <section>
     <div class="section-tag">Planos</div>
-    <h2>Preço por quantos números você precisa disparar ao mesmo tempo</h2>
+    <h2>Preço conforme a quantidade de números conectados</h2>
     <div class="plans">
       <div class="plan">
         <div class="name">Básico</div>
         <div class="price">R$ 44,90<small> /mês</small></div>
         <ul>
-          <li>Até 2 números simultâneos</li>
-          <li>Templates com variáveis</li>
+          <li>Até 2 números conectados</li>
+          <li>Templates com variáveis e rodízio</li>
+          <li>Contatos com tag</li>
           <li>Histórico e reenvio de falhas</li>
-          <li>Delay e limite diário configuráveis</li>
         </ul>
         <a class="btn btn-outline" href="https://wa.me/5562992322393?text=Quero%20o%20plano%20B%C3%A1sico%20do%20WhatsRob%C3%B4" target="_blank" rel="noopener noreferrer">Assinar Básico</a>
       </div>
@@ -139,8 +133,7 @@
         <div class="price">R$ 74,90<small> /mês</small></div>
         <ul>
           <li>Números ilimitados</li>
-          <li>Rodízio de templates</li>
-          <li>Tags e segmentação de contatos</li>
+          <li>Todos os recursos do Básico</li>
           <li>Suporte prioritário</li>
         </ul>
         <a class="btn" href="https://wa.me/5562992322393?text=Quero%20o%20plano%20Pro%20do%20WhatsRob%C3%B4" target="_blank" rel="noopener noreferrer">Assinar Pro</a>
@@ -149,11 +142,12 @@
         <div class="name">VIP</div>
         <div class="price">sob consulta</div>
         <ul>
-          <li>Tudo do Pro</li>
-          <li>Onboarding acompanhado</li>
-          <li>Ajustes sob medida no fluxo</li>
+          <li>Números ilimitados</li>
+          <li>Todos os recursos do Pro</li>
+          <li>Acompanhamento na configuração inicial</li>
+          <li>Ajustes no programa sob encomenda</li>
         </ul>
-        <a class="btn btn-outline" href="https://wa.me/5562992322393?text=Quero%20saber%20sobre%20o%20plano%20VIP%20do%20WhatsRob%C3%B4" target="_blank" rel="noopener noreferrer">Falar sobre VIP</a>
+        <a class="btn btn-outline" href="https://wa.me/5562992322393?text=Quero%20saber%20sobre%20o%20plano%20VIP%20do%20WhatsRob%C3%B4" target="_blank" rel="noopener noreferrer">Consultar VIP</a>
       </div>
     </div>
   </section>

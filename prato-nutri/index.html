@@ -3,17 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prato Nutri: controle nutricional no celular</title>
-<meta name="description" content="Prato Nutri: acompanhe refeições e hábitos alimentares com um banco de mais de 9 mil alimentos e 16 micronutrientes. Publicado na Google Play.">
+<title>Prato Nutri: tabela nutricional para Android</title>
+<meta name="description" content="Aplicativo Android com tabela nutricional de mais de 7 mil alimentos, até 16 micronutrientes, registro das refeições do dia e montador de receitas. Gratuito na Google Play.">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Prato Nutri: controle nutricional no celular">
-<meta property="og:description" content="Acompanhe refeições e hábitos alimentares com um banco de mais de 9 mil alimentos e 16 micronutrientes. Publicado na Google Play.">
+<meta property="og:title" content="Prato Nutri: tabela nutricional para Android">
+<meta property="og:description" content="Aplicativo Android com tabela nutricional de mais de 7 mil alimentos, até 16 micronutrientes, registro das refeições do dia e montador de receitas. Gratuito na Google Play.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F1614'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%233ECF8E'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
   :root { --bg: #0F1614; --bg-alt: #1C2622; --fg: #F5F3EE; --fg-muted: #8B8378; --accent: #3ECF8E; --border: #2A3530; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -54,6 +52,7 @@
 
   .sources { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
   .source-chip { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--fg-muted); border: 1px solid var(--border); border-radius: 100px; padding: 6px 12px; }
+  .sources-note { margin-top: 14px; font-size: 0.85rem; color: var(--fg-muted); max-width: 64ch; }
 
   footer { padding: 48px 0 60px; }
   footer a.back { color: var(--accent); text-decoration: none; font-size: 0.92rem; }
@@ -64,44 +63,47 @@
 <nav class="top">
   <div class="wrap">
     <a class="wordmark" href="/">KaoZ <b>Brigade</b></a>
-    <a class="btn" href="https://play.google.com/store/apps/details?id=com.thekaoz.prato_nutri" target="_blank" rel="noopener noreferrer">Ver na Play Store</a>
+    <a class="btn" href="https://play.google.com/store/apps/details?id=com.thekaoz.prato_nutri" target="_blank" rel="noopener noreferrer">Ver na Google Play</a>
   </div>
 </nav>
 
 <div class="wrap">
 
   <section class="hero">
-    <span class="tag">CONTROLE NUTRICIONAL</span>
-    <h1>Saiba exatamente o que você comeu, sem virar obsessão.</h1>
-    <p class="lead">O Prato Nutri acompanha suas refeições e hábitos alimentares no dia a dia, direto do celular, com um dos bancos de alimentos mais completos disponíveis em português.</p>
+    <span class="tag">NUTRIÇÃO</span>
+    <h1>Tabela nutricional e registro de refeições no celular</h1>
+    <p class="lead">O Prato Nutri mostra calorias, macronutrientes e micronutrientes de mais de 7 mil alimentos e soma o que foi registrado em cada dia.</p>
     <div class="hero-cta">
-      <a class="btn" href="https://play.google.com/store/apps/details?id=com.thekaoz.prato_nutri" target="_blank" rel="noopener noreferrer">Baixar na Play Store</a>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.thekaoz.prato_nutri" target="_blank" rel="noopener noreferrer">Baixar na Google Play</a>
     </div>
-    <div class="trust">✓ Publicado e disponível: Brasil e Angola</div>
+    <div class="trust">Gratuito. Para celulares Android.</div>
   </section>
 
   <section>
-    <div class="section-tag">O banco de alimentos</div>
-    <h2>Mais de 9 mil alimentos, com micronutrientes de verdade</h2>
+    <div class="section-tag">Banco de alimentos</div>
+    <h2>Mais de 7 mil alimentos de três bases de dados</h2>
     <div class="stats">
-      <div class="stat"><div class="n mono">9.015</div><div class="l">alimentos cadastrados</div></div>
-      <div class="stat"><div class="n mono">16</div><div class="l">micronutrientes por alimento</div></div>
-      <div class="stat"><div class="n mono">3</div><div class="l">bases combinadas e revisadas</div></div>
+      <div class="stat"><div class="n mono">+7 mil</div><div class="l">alimentos cadastrados</div></div>
+      <div class="stat"><div class="n mono">Até 16</div><div class="l">micronutrientes por alimento, como sódio, ferro e vitamina C</div></div>
+      <div class="stat"><div class="n mono">3</div><div class="l">bases de dados combinadas</div></div>
     </div>
     <div class="sources">
       <span class="source-chip">TACO</span>
       <span class="source-chip">USDA</span>
       <span class="source-chip">Open Food Facts</span>
     </div>
+    <p class="sources-note">TACO: Tabela Brasileira de Composição de Alimentos, da Unicamp. USDA: base do Departamento de Agricultura dos Estados Unidos. Open Food Facts: produtos industrializados, com dados do rótulo.</p>
   </section>
 
   <section>
     <div class="section-tag">Recursos</div>
-    <h2>Simples de usar todo dia, sem complicação</h2>
+    <h2>O que o aplicativo faz</h2>
     <ul class="features">
-      <li><b>Registro rápido de refeição.</b> <span>Busca o alimento no banco e registra em poucos toques.</span></li>
-      <li><b>Micronutrientes na tela "ver mais".</b> <span>Vitaminas e minerais de cada alimento, não só calorias.</span></li>
-      <li><b>Interface pensada pra uso diário.</b> <span>Sem gráfico complicado, sem obrigação de virar planilha.</span></li>
+      <li><b>Busca de alimentos.</b> <span>Pesquisa por nome ou por categoria.</span></li>
+      <li><b>Meu Dia.</b> <span>Registro das refeições, com o total de calorias e a meta diária.</span></li>
+      <li><b>Micronutrientes.</b> <span>Vitaminas e minerais de cada alimento, além das calorias e dos macronutrientes.</span></li>
+      <li><b>Receitas.</b> <span>Montador de receitas com o total de nutrientes por porção.</span></li>
+      <li><b>Histórico.</b> <span>Consulta dos dias anteriores.</span></li>
     </ul>
   </section>
 

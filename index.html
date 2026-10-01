@@ -3,17 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ferramentas prontas pra automatizar e vender mais</title>
-<meta name="description" content="WhatsRobô, Prato Nutri e Closet: automações e sistemas desenvolvidos pela KaoZ Brigade.">
+<title>KaoZ Brigade: criação de sites, sistemas, aplicativos e automações</title>
+<meta name="description" content="Desenvolvimento sob encomenda de sites, sistemas web, aplicativos Android e automações. Produtos próprios: WhatsRobô, Prato Nutri e Closet.">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Ferramentas prontas pra automatizar e vender mais">
-<meta property="og:description" content="WhatsRobô, Prato Nutri e Closet: automações e sistemas desenvolvidos pela KaoZ Brigade.">
+<meta property="og:title" content="KaoZ Brigade: criação de sites, sistemas, aplicativos e automações">
+<meta property="og:description" content="Desenvolvimento sob encomenda de sites, sistemas web, aplicativos Android e automações. Produtos próprios: WhatsRobô, Prato Nutri e Closet.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F1614'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%233ECF8E'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
   :root {
     --bg: #0F1614;
@@ -37,50 +35,52 @@
   .navlinks a:hover { color: var(--accent); }
   @media (max-width: 560px) { .navlinks { gap: 14px; font-size: 0.85rem; } }
 
-  /* HERO */
+  /* HERO: a oferta de serviços vem primeiro */
   .hero { padding: 88px 0 64px; border-bottom: 1px solid var(--border); }
-  .hero h1 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.15; max-width: 14ch; }
-  .hero p { margin-top: 20px; font-size: 1.15rem; color: var(--fg-muted); max-width: 42ch; }
+  .hero h1 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.15; max-width: 18ch; }
+  .hero p { margin-top: 20px; font-size: 1.15rem; color: var(--fg-muted); max-width: 46ch; }
+  .hero-cta { margin-top: 28px; }
+  .btn { display: inline-block; background: var(--accent); color: #0F1614; font-weight: 600; font-size: 0.95rem; padding: 11px 20px; border-radius: 6px; text-decoration: none; }
 
-  /* PRODUCT SUMMARY CARDS */
+  /* TÍTULO DE GRUPO (Serviços, Produtos próprios) */
+  .group-head { padding-top: 48px; font-size: 0.78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-muted); }
+  .group-head + .product { padding-top: 20px; }
+
+  /* SERVIÇOS */
+  .services { padding: 20px 0 56px; border-bottom: 1px solid var(--border); }
+  .product h2, .services h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(1.6rem, 3.5vw, 2.1rem); margin-bottom: 12px; }
+  .product p.lede, .services p.lede { color: var(--fg-muted); font-size: 1.02rem; max-width: 54ch; margin-bottom: 18px; }
+  .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 6px 0 28px; }
+  @media (max-width: 600px) { .service-grid { grid-template-columns: 1fr; } }
+  .service { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px; padding: 18px; }
+  .service .t { font-family: 'Fraunces', serif; font-size: 1.05rem; margin-bottom: 4px; }
+  .service .d { font-size: 0.9rem; color: var(--fg-muted); margin-bottom: 10px; }
+  .service .ex { font-size: 0.85rem; color: var(--fg-muted); }
+  .service .ex a { color: var(--accent); text-decoration: none; }
+  .service .ex a:hover { text-decoration: underline; }
+
+  /* RESUMO DE CADA PRODUTO */
   .product { padding: 56px 0; border-bottom: 1px solid var(--border); }
   .product-tag { font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
-  .product h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(1.6rem, 3.5vw, 2.1rem); margin-bottom: 12px; }
-  .product p.lede { color: var(--fg-muted); font-size: 1.02rem; max-width: 54ch; margin-bottom: 18px; }
   .features { list-style: none; margin-bottom: 20px; display: grid; gap: 8px; }
   .features li { padding-left: 20px; position: relative; font-size: 0.95rem; }
   .features li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
-  .proof { display: inline-block; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 6px; padding: 9px 14px; font-size: 0.88rem; color: var(--fg-muted); margin-bottom: 20px; }
-  .proof strong { color: var(--fg); font-weight: 600; }
   .more-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.95rem; }
   .more-link:hover { gap: 10px; }
 
-  /* FOOTER */
+  /* CONTATO */
   footer { padding: 56px 0 64px; }
   .bio { max-width: 52ch; }
   footer .name { font-family: 'Fraunces', serif; font-size: 1.3rem; margin-bottom: 6px; }
   footer .role { color: var(--fg-muted); font-size: 0.95rem; margin-bottom: 16px; }
   .bio p { color: var(--fg-muted); font-size: 0.95rem; margin-bottom: 22px; }
-  .contact-links { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 48px; }
+  .contact-links { display: flex; gap: 20px; flex-wrap: wrap; }
   .contact-links a { text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid var(--border); padding-bottom: 2px; }
   .contact-links a:hover { border-color: var(--accent); color: var(--accent); }
-
-  .portfolio-head { font-size: 0.78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-muted); margin-bottom: 16px; }
-  .portfolio-grid { display: grid; gap: 12px; }
-  .portfolio-item {
-    display: flex; justify-content: space-between; align-items: center; gap: 16px;
-    background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px;
-    padding: 16px 18px; text-decoration: none;
-  }
-  .portfolio-item:hover { border-color: var(--accent); }
-  .portfolio-item .t { font-family: 'Fraunces', serif; font-size: 1.02rem; color: var(--fg); }
-  .portfolio-item .d { font-size: 0.85rem; color: var(--fg-muted); margin-top: 2px; }
-  .portfolio-item .arrow { color: var(--accent); font-size: 1.1rem; flex-shrink: 0; }
 
   @media (max-width: 600px) {
     .hero { padding: 56px 0 40px; }
     .product { padding: 40px 0; }
-    .portfolio-item { flex-direction: column; align-items: flex-start; gap: 6px; }
   }
 </style>
 </head>
@@ -90,9 +90,9 @@
   <div class="wrap">
     <a class="wordmark" href="/">KaoZ Brigade</a>
     <div class="navlinks">
-      <a href="/whatsrobo/">WhatsRobô</a>
-      <a href="/prato-nutri/">Prato Nutri</a>
-      <a href="/closet/">Closet</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#contato">Contato</a>
     </div>
   </div>
 </nav>
@@ -100,75 +100,90 @@
 <div class="wrap">
 
   <section class="hero">
-    <h1>Ferramentas prontas pra automatizar e vender mais</h1>
-    <p>Escolha o produto abaixo. Cada um tem sua própria página com todos os detalhes.</p>
+    <h1>Criação de sites, sistemas, aplicativos e automações</h1>
+    <p>Desenvolvimento sob encomenda para empresas e profissionais. A KaoZ Brigade também mantém três produtos próprios: WhatsRobô, Prato Nutri e Closet.</p>
+    <div class="hero-cta">
+      <a class="btn" href="https://wa.me/5562992322393?text=Quero%20um%20or%C3%A7amento%20de%20desenvolvimento" target="_blank" rel="noopener noreferrer">Solicitar orçamento</a>
+    </div>
   </section>
 
+  <div class="group-head" id="servicos">Serviços</div>
+
+  <section class="services">
+    <h2>O que a KaoZ Brigade desenvolve</h2>
+    <p class="lede">Cada projeto é criado para o negócio do cliente. O orçamento é feito pelo WhatsApp.</p>
+    <div class="service-grid">
+      <div class="service">
+        <div class="t">Criação de sites</div>
+        <div class="d">Sites de apresentação para empresas e páginas de venda de produtos.</div>
+        <div class="ex">Exemplo: este site</div>
+      </div>
+      <div class="service">
+        <div class="t">Automações</div>
+        <div class="d">Programas para Windows que fazem tarefas repetitivas, como o envio de mensagens pelo WhatsApp.</div>
+        <div class="ex">Exemplo: <a href="/whatsrobo/">WhatsRobô</a></div>
+      </div>
+      <div class="service">
+        <div class="t">Sistemas web</div>
+        <div class="d">Sistemas acessados pelo navegador, no computador e no celular, com login de usuários e banco de dados.</div>
+        <div class="ex">Exemplo: <a href="/closet/">Closet</a></div>
+      </div>
+      <div class="service">
+        <div class="t">Aplicativos Android</div>
+        <div class="d">Aplicativos para celular, com publicação na Google Play.</div>
+        <div class="ex">Exemplo: <a href="/prato-nutri/">Prato Nutri</a></div>
+      </div>
+    </div>
+    <a class="btn" href="https://wa.me/5562992322393?text=Quero%20um%20or%C3%A7amento%20de%20desenvolvimento" target="_blank" rel="noopener noreferrer">Solicitar orçamento</a>
+  </section>
+
+  <div class="group-head" id="produtos">Produtos próprios</div>
+
   <section class="product" id="whatsrobo">
-    <div class="product-tag">DISPARO DE MENSAGENS</div>
+    <div class="product-tag">ENVIO DE MENSAGENS</div>
     <h2>WhatsRobô</h2>
-    <p class="lede">Automatiza o envio de mensagens em massa pelo WhatsApp, com segurança contra bloqueio e controle total sobre suas campanhas.</p>
+    <p class="lede">Programa para Windows que envia mensagens pelo WhatsApp para listas de contatos, com intervalo aleatório entre os envios.</p>
     <ul class="features">
-      <li>Múltiplos números conectados ao mesmo tempo</li>
-      <li>Delay inteligente entre mensagens, pra parecer envio natural</li>
-      <li>Reenvia automaticamente só pra quem falhou</li>
+      <li>Vários números de WhatsApp conectados ao mesmo tempo</li>
+      <li>Templates com variáveis, como nome e cidade do contato</li>
+      <li>Histórico de cada disparo e reenvio para os contatos que falharam</li>
     </ul>
-    <div class="proof"><strong>Em uso real:</strong> clientes pagando por licença mensal e trimestral</div>
-    <br>
-    <a href="/whatsrobo/" class="more-link">Ver detalhes e planos →</a>
+    <a href="/whatsrobo/" class="more-link">Ver recursos e planos →</a>
   </section>
 
   <section class="product" id="prato-nutri">
-    <div class="product-tag">CONTROLE NUTRICIONAL</div>
+    <div class="product-tag">NUTRIÇÃO</div>
     <h2>Prato Nutri</h2>
-    <p class="lede">App para acompanhar refeições e hábitos alimentares no dia a dia, direto do celular, com banco de mais de 9 mil alimentos.</p>
+    <p class="lede">Aplicativo Android com tabela nutricional de mais de 7 mil alimentos, registro das refeições do dia e montador de receitas.</p>
     <ul class="features">
-      <li>Publicado e disponível na Google Play</li>
-      <li>Interface simples, pensada pra uso diário sem complicação</li>
+      <li>Calorias, proteínas, carboidratos e gorduras de cada alimento</li>
+      <li>Até 16 micronutrientes, como sódio, ferro e vitamina C</li>
+      <li>Gratuito na Google Play</li>
     </ul>
-    <div class="proof"><strong>Publicado:</strong> na Google Play, Brasil e Angola</div>
-    <br>
     <a href="/prato-nutri/" class="more-link">Ver detalhes →</a>
   </section>
 
   <section class="product" id="closet">
-    <div class="product-tag">GESTÃO PARA LOJAS</div>
+    <div class="product-tag">GESTÃO DE LOJA DE ROUPAS</div>
     <h2>Closet</h2>
-    <p class="lede">Sistema completo de gestão para lojas de roupa, com controle de estoque, vendas e provisória em um só lugar, feito pra pequenos negócios.</p>
+    <p class="lede">Sistema para lojas de roupas, com estoque por tamanho e cor, vendas, provisórias e relatórios. Funciona no navegador do computador e do celular.</p>
     <ul class="features">
-      <li>Venda rápida com leitor de código de barras</li>
-      <li>Provisória, relatórios e painel de administração</li>
+      <li>Venda rápida com leitura do código de barras pela câmera ou por leitor USB</li>
+      <li>Provisórias com parcelas, vencimento e situação de pagamento</li>
+      <li>Plano gratuito com até 20 produtos e 30 vendas por mês</li>
     </ul>
-    <div class="proof"><strong>No ar:</strong> sistema completo, pronto pra receber clientes</div>
-    <br>
-    <a href="/closet/" class="more-link">Ver detalhes e planos →</a>
+    <a href="/closet/" class="more-link">Ver recursos e planos →</a>
   </section>
 
   <footer id="contato">
     <div class="bio">
       <div class="name">KaoZ Brigade</div>
-      <div class="role">João Victor: desenvolvimento de apps, automações e sites</div>
-      <p>Desenvolvo sob medida, do primeiro rascunho ao ar: automações, sistemas de gestão e sites. Os produtos acima já estão em uso; se o que você precisa é diferente, é só chamar.</p>
+      <div class="role">João Victor: desenvolvimento de sites, sistemas, aplicativos e automações</div>
+      <p>Contato para orçamentos, assinaturas e suporte.</p>
     </div>
     <div class="contact-links">
       <a href="https://wa.me/5562992322393" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       <a href="mailto:jvmartins71@gmail.com">E-mail</a>
-    </div>
-
-    <div class="portfolio-head">Portfólio de landing pages</div>
-    <div class="portfolio-grid">
-      <a class="portfolio-item" href="https://thekaoz.github.io/whatsrobo-landing/" target="_blank" rel="noopener noreferrer">
-        <div><div class="t">SaaS técnico</div><div class="d">Tema escuro, estilo painel/terminal</div></div>
-        <span class="arrow">↗</span>
-      </a>
-      <a class="portfolio-item" href="https://thekaoz.github.io/closet-landing/" target="_blank" rel="noopener noreferrer">
-        <div><div class="t">Negócio loja</div><div class="d">Tema claro, estilo dashboard</div></div>
-        <span class="arrow">↗</span>
-      </a>
-      <a class="portfolio-item" href="https://thekaoz.github.io/potion-brewery-landing/" target="_blank" rel="noopener noreferrer">
-        <div><div class="t">Jogo recrutamento</div><div class="d">Tema fantasia, com arte pixel real</div></div>
-        <span class="arrow">↗</span>
-      </a>
     </div>
   </footer>
 
