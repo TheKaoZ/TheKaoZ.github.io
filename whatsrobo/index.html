@@ -69,6 +69,13 @@
 
   footer { padding: 48px 0 60px; }
   footer a.back { color: var(--accent); text-decoration: none; font-size: 0.92rem; }
+
+  /* TELAS: prints com dados de demonstração */
+  .telas { display: grid; gap: 22px; margin-top: 24px; }
+  .telas figure { margin: 0; }
+  .telas img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 8px; }
+  .telas figcaption { margin-top: 8px; font-size: 0.88rem; color: var(--fg-muted); }
+  .telas-nota { margin-top: 16px; font-size: 0.8rem; color: var(--fg-muted); }
 </style>
 </head>
 <body>
@@ -98,6 +105,26 @@
       <div class="stat"><div class="n mono">150</div><div class="l">limite padrão de envios por número em cada disparo, configurável</div></div>
       <div class="stat"><div class="n mono">2</div><div class="l">números conectados no plano Básico. No Pro, ilimitados</div></div>
     </div>
+  </section>
+
+  <section>
+    <div class="section-tag">Telas</div>
+    <h2>Como é o programa</h2>
+    <div class="telas">
+      <figure>
+        <img src="/img/whatsrobo/disparo.webp" width="1366" height="768" loading="lazy" alt="Tela de disparo do WhatsRobô com 12 contatos selecionados, intervalo de 40 a 90 segundos e 3 templates em rodízio">
+        <figcaption>Disparo: contatos selecionados, intervalo entre envios, limite diário e rodízio de templates.</figcaption>
+      </figure>
+      <figure>
+        <img src="/img/whatsrobo/mensagem.webp" width="1366" height="768" loading="lazy" alt="Tela de mensagem do WhatsRobô com um template que usa a variável nome e a pré-visualização com o nome de um contato">
+        <figcaption>Mensagem: template com a variável {nome} e pré-visualização com o nome de um contato.</figcaption>
+      </figure>
+      <figure>
+        <img src="/img/whatsrobo/historico.webp" width="1366" height="768" loading="lazy" alt="Histórico do WhatsRobô com 3 disparos, envios feitos, falhas e o botão de reenviar falhas">
+        <figcaption>Histórico: envios feitos e falhas de cada disparo, com reenvio só para quem falhou.</figcaption>
+      </figure>
+    </div>
+    <p class="telas-nota">Telas com dados de demonstração.</p>
   </section>
 
   <section>

@@ -39,14 +39,6 @@
   section { padding: 56px 0; border-bottom: 1px solid var(--border); }
   .section-tag { font-size: 0.78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-muted); margin-bottom: 10px; }
 
-  .device { margin-top: 28px; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-  .device-head { display: flex; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: 11px; color: var(--fg-muted); }
-  .device-head .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); }
-  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
-  @media (max-width: 640px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
-  .kpi { background: var(--bg-alt); padding: 16px; }
-  .kpi .l { font-size: 11px; color: var(--fg-muted); }
-  .kpi .v { font-size: 18px; font-weight: 700; margin-top: 4px; }
 
   .features { list-style: none; display: grid; gap: 12px; margin-top: 24px; }
   .features li { padding-left: 22px; position: relative; font-size: 0.98rem; }
@@ -70,6 +62,13 @@
 
   footer { padding: 48px 0 60px; }
   footer a.back { color: var(--accent); text-decoration: none; font-size: 0.92rem; }
+
+  /* TELAS: prints com dados de demonstração */
+  .telas { display: grid; gap: 22px; margin-top: 24px; }
+  .telas figure { margin: 0; }
+  .telas img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 8px; }
+  .telas figcaption { margin-top: 8px; font-size: 0.88rem; color: var(--fg-muted); }
+  .telas-nota { margin-top: 16px; font-size: 0.8rem; color: var(--fg-muted); }
 </style>
 </head>
 <body>
@@ -95,17 +94,28 @@
   </section>
 
   <section>
+    <div class="section-tag">Telas</div>
+    <h2>Como é o sistema</h2>
+    <div class="telas">
+      <figure>
+        <img src="/img/closet/painel.webp" width="1366" height="768" loading="lazy" alt="Painel do Closet com produtos, itens e valor do estoque, vendas e receita do mês e alerta de estoque baixo">
+        <figcaption>Painel: estoque, vendas e receita do mês, com alerta de estoque baixo.</figcaption>
+      </figure>
+      <figure>
+        <img src="/img/closet/relatorios.webp" width="1366" height="768" loading="lazy" alt="Relatórios do Closet com vendas, receita e margem média dos últimos 30 dias, provisórias vencidas e gráfico de receita por dia">
+        <figcaption>Relatórios: vendas, receita e margem do período, provisórias vencidas e receita por dia.</figcaption>
+      </figure>
+      <figure>
+        <img src="/img/closet/provisoria.webp" width="1366" height="768" loading="lazy" alt="Tela de provisórias do Closet com total pendente, parcelas vencidas e pagas e a lista por cliente">
+        <figcaption>Provisória: total pendente, parcelas vencidas e pagas, por cliente.</figcaption>
+      </figure>
+    </div>
+    <p class="telas-nota">Telas com dados de demonstração.</p>
+  </section>
+
+  <section>
     <div class="section-tag">Recursos</div>
     <h2>O que o sistema faz</h2>
-    <div class="device">
-      <div class="device-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span>&nbsp;&nbsp;loja-closet.netlify.app</div>
-      <div class="kpi-grid">
-        <div class="kpi"><div class="l">Venda rápida</div><div class="v">leitor de código</div></div>
-        <div class="kpi"><div class="l">Provisória</div><div class="v">parcelas e vencimento</div></div>
-        <div class="kpi"><div class="l">Relatórios</div><div class="v">receita e margem</div></div>
-        <div class="kpi"><div class="l">Estoque</div><div class="v">tamanho e cor</div></div>
-      </div>
-    </div>
     <ul class="features">
       <li><b>Estoque com alerta.</b> <span>Produtos cadastrados por tamanho e cor, com aviso quando o estoque fica baixo.</span></li>
       <li><b>Venda rápida.</b> <span>Leitura do código de barras pela câmera do celular ou por leitor USB. Cada leitura entra direto no carrinho.</span></li>

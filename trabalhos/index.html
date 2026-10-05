@@ -43,6 +43,8 @@
   .work h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.4rem; }
   .work p { color: var(--fg-muted); font-size: 0.95rem; }
   /* Vídeo de cada trabalho: entra como <div class="midia"><video ...></video></div>, no lugar marcado em cada cartão. */
+  .work .midia img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 6px; }
+  .nota { margin-top: 18px; font-size: 0.8rem; color: var(--fg-muted); }
   .work .midia video { display: block; width: 100%; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); }
   .work .link { margin-top: auto; padding-top: 6px; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.92rem; }
 
@@ -75,6 +77,7 @@
       <article class="work">
         <div class="tipo">Programa para Windows</div>
         <h3>WhatsRobô</h3>
+        <div class="midia"><img src="/img/whatsrobo/disparo.webp" width="1366" height="768" loading="lazy" alt="Tela de disparo do WhatsRobô com contatos selecionados e templates em rodízio"></div>
         <!-- Vídeo: <div class="midia"><video src="/videos/whatsrobo.mp4" controls muted playsinline preload="metadata"></video></div> -->
         <p>Disparo de mensagens no WhatsApp para listas de contatos, com vários números conectados, intervalo aleatório entre envios e histórico de cada disparo.</p>
         <a class="link" href="/whatsrobo/">Ver recursos e planos →</a>
@@ -83,6 +86,7 @@
       <article class="work">
         <div class="tipo">Sistema web</div>
         <h3>Closet</h3>
+        <div class="midia"><img src="/img/closet/painel.webp" width="1366" height="768" loading="lazy" alt="Painel do Closet com estoque, vendas do mês e alerta de estoque baixo"></div>
         <!-- Vídeo: <div class="midia"><video src="/videos/closet.mp4" controls muted playsinline preload="metadata"></video></div> -->
         <p>Gestão de loja de roupas pelo navegador: estoque por tamanho e cor, venda com leitor de código de barras, provisórias e relatórios.</p>
         <a class="link" href="/closet/">Ver recursos e planos →</a>
@@ -99,11 +103,13 @@
       <article class="work">
         <div class="tipo">Programa para Windows</div>
         <h3>Editor de Sprites</h3>
+        <div class="midia"><img src="/img/editor-sprites/editor.webp" width="1366" height="690" loading="lazy" alt="Editor de Sprites com uma nave em pixel art aberta na grade, ferramentas de desenho e pré-visualização"></div>
         <!-- Vídeo: <div class="midia"><video src="/videos/editor-sprites.mp4" controls muted playsinline preload="metadata"></video></div> -->
         <p>Editor de pixel art criado para os jogos da KaoZ Brigade, com paleta do projeto, geração de tons de sombra, espelho, balde e marcação de correções.</p>
       </article>
 
     </div>
+    <p class="nota">Telas com dados de demonstração.</p>
   </section>
 
   <section class="orcamento">
